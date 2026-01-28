@@ -25,7 +25,7 @@ profile_data = {
     "role": "Physics & Engineering Professional",
     "email": "HMkasi@csir.co.za",
     "phone": "071 192 7150",
-    "institution": "North-West University / TUT",
+    "institution": "Stellenbosch University",
     "location": "Pretoria, South Africa",
     "current_role": "Meng Industrial Engineering Data Science",
     "summary": "Detail-oriented physics and engineering professional with experience in precision measurement, optical systems, and calibration. Skilled in analyzing measurement datasets using Python and supporting engineering teams in research and manufacturing environments.",
@@ -50,10 +50,11 @@ recent_output = [
 ]
 
 references = [
-    {"initials": "KN", "name": "Dr. Ncongwane"},
-    {"initials": "BM", "name": "Mr. Mabasa"},
-    {"initials": "WM", "name": "Mr. Mkasi"},
+    {"initials": "KN", "name": "Dr. Ncongwane", "role": "Senior Researcher", "contact": "kncongwane@saws.co.za"},
+    {"initials": "BM", "name": "Mr. Mabasa", "role": "Project Manager", "contact": "bmabasa@saws.co.za"},
+    {"initials": "WM", "name": "Mr. Mkasi", "role": "Lead Engineer", "contact": "wmkasi@csir.co.za"},
 ]
+
 
 toolkit_icons = ["📊", "🏠", "📋", "📈", "⚙️", "🔒", "📉", "👁️", "🔧"]
 
@@ -87,16 +88,27 @@ def create_donut_chart():
     fig = go.Figure(data=[go.Pie(
         labels=list(research_focus.keys()),
         values=list(research_focus.values()),
-        hole=0.65,
+        hole=0.7,
         marker=dict(colors=['#3b82f6', '#8b5cf6', '#22c55e']),
         textinfo='none',
+        hovertemplate='<b>%{label}</b><br>%{percent}<br>%{value} Projects<extra></extra>',
+        sort=False
     )])
     fig.update_layout(
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.1, xanchor="center", x=0.5, font=dict(size=10)),
-        margin=dict(l=20, r=20, t=20, b=40),
+        legend=dict(
+            orientation="h", 
+            yanchor="bottom", 
+            y=-0.2, 
+            xanchor="center", 
+            x=0.5, 
+            itemclick="toggleothers", 
+            itemdoubleclick="toggle",
+            font=dict(size=11)
+        ),
+        margin=dict(l=10, r=10, t=20, b=50),
         paper_bgcolor='rgba(0,0,0,0)',
-        height=200,
+        height=240, 
         annotations=[dict(text='<b>4 Major</b><br>Projects', x=0.5, y=0.5, font=dict(size=14, color='#1a2b3c'), showarrow=False)]
     )
     return fig
@@ -152,8 +164,17 @@ with main_col:
     r3c1, r3c2 = st.columns(2)
     
     with r3c1:
-        refs_html = ''.join([f'<div class="reference-item"><div class="reference-avatar">{r["initials"]}</div><p class="reference-name">{r["name"]}</p></div>' for r in references])
-        st.markdown(f'<div class="chart-card small-card"><h3 class="card-title">References</h3><p class="card-subtitle">History</p><div style="display: flex; justify-content: space-around; margin-top: 1rem;">{refs_html}</div></div>', unsafe_allow_html=True)
+        refs_html = ''.join([f'''
+            <div class="reference-item">
+                <div class="reference-avatar">{r["initials"]}</div>
+                <p class="reference-name">{r["name"]}</p>
+                <div class="reference-modal">
+                    <strong>{r["name"]}</strong><br>
+                    <span style="font-size: 0.7rem; color: #94a3b8;">{r["role"]}</span><br>
+                    <span style="font-size: 0.7rem; color: #64748b;">{r["contact"]}</span>
+                </div>
+            </div>''' for r in references])
+        st.markdown(f'<div class="chart-card small-card" style="overflow: visible; z-index: 10;"><h3 class="card-title">References</h3><p class="card-subtitle">History</p><div style="display: flex; justify-content: space-around; margin-top: 1rem;">{refs_html}</div></div>', unsafe_allow_html=True)
         
     with r3c2:
         icons_html = ''.join([f'<div class="toolkit-icon">{i}</div>' for i in toolkit_icons])

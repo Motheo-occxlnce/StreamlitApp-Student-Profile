@@ -7,17 +7,10 @@
 }
 
 /* Hide Streamlit components */
-#MainMenu {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
+/* Unhide Streamlit components so sidebar toggle works */
+/* #MainMenu { visibility: hidden; } */
+/* header { visibility: hidden; } */
+/* footer { visibility: hidden; } */
 
 .stDeployButton {
     display: none;
@@ -108,8 +101,16 @@ footer {
 .output-item {
     display: flex;
     align-items: center;
-    padding: 0.75rem 0;
+    padding: 0.75rem 0.5rem;
     border-bottom: 1px solid #f1f5f9;
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.output-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(4px);
+    cursor: pointer;
 }
 
 .output-item:last-child {
@@ -148,8 +149,16 @@ footer {
 }
 
 /* ===== REFERENCES ===== */
+/* ===== REFERENCES HOVER MODAL ===== */
 .reference-item {
     text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.reference-item:hover {
+    transform: translateY(-5px);
 }
 
 .reference-avatar {
@@ -164,12 +173,67 @@ footer {
     font-size: 0.85rem;
     font-weight: 600;
     color: #475569;
+    transition: all 0.2s;
+}
+
+.reference-item:hover .reference-avatar {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5);
 }
 
 .reference-name {
     color: #64748b;
     font-size: 0.7rem;
     margin: 0;
+}
+
+/* Modal/Tooltip Styling */
+.reference-modal {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 140px;
+    z-index: 100 !important;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    font-size: 0.8rem;
+    pointer-events: none;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Modal Arrow */
+.reference-modal::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.reference-item:hover .reference-modal {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
 }
 
 /* ===== TOOLKIT ===== */
