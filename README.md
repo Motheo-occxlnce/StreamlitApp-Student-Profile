@@ -2,7 +2,7 @@
 
 A professional, single-page "Bento-style" dashboard built with Streamlit to showcase the research profile, skills, and academic output of *Motheo Mahlatse Maoto Nkadimeng*.
 
-![Dashboard Preview](https://via.placeholder.com/800x450.png?text=Dashboard+Preview)
+![Dashboard Preview]([https://github.com/Motheo-occxlnce/StreamlitApp-Student-Profile/blob/main/Student%20research%20profile.png?raw=true?text=Dashboard+Preview)
 
 ## 🚀 Features
 
@@ -70,3 +70,4 @@ The dashboard will open automatically in your default browser at `http://localho
 
 ---
 *Built with ❤️ using Streamlit*
+
