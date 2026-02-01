@@ -1,50 +1,39 @@
-# Research Student Profile Dashboard 🎓
+# Research Profile Dashboard
 
-A professional, single-page "Bento-style" dashboard built with Streamlit to showcase the research profile, skills, and academic output of *Motheo Mahlatse Maoto Nkadimeng*.
+A professional research profile dashboard built with [Streamlit](https://streamlit.io/). This application showcases academic qualifications, research projects, professional experience, and technical skills in a responsive, interactive web interface.
 
-![Dashboard Preview]([https://github.com/Motheo-occxlnce/StreamlitApp-Student-Profile/blob/main/Student%20research%20profile.png?raw=true?text=Dashboard+Preview)
+## Features
 
-## 🚀 Features
+- **Interactive Dashboard**: Overview of profile, about me section, and key statistics.
+- **Experience Timeline**: Detailed professional history with dates and roles.
+- **Research Portfolio**: Cards displaying research projects, publications, and focus areas with tags.
+- **Education Section**: Timeline of academic qualifications.
+- **Download CV**: Functionality to print the dashboard as a PDF.
+- **Responsive Design**: Custom CSS for a clean, modern aesthetic (Tailwind-inspired).
 
-*   **Responsive Bento Grid Layout**: A modern 3-column layout that organizes information into cohesive cards.
-*   **Interactive Visualizations**:
-    *   **Radar Chart**: Visualizes core technical competencies.
-    *   **Donut Chart**: Displays research focus distribution.
-    *   **Skill Bars**: Showcases proficiency in specialized tools.
-*   **Dynamic Sidebar**: Navigation menu, contact details, and Github integration.
-*   **Custom Styling**: Integrated `style.css` for a polished, dark-themed sidebar and clean card aesthetics (soft shadows, rounded corners, uniform heights).
-*   **No-Scroll Design**: Optimized for a single-screen experience on standard desktop displays.
+## Installation
 
-## 🛠️ Tech Stack
-
-*   **Python 3.10+**
-*   **Streamlit**: Frontend framework.
-*   **Plotly**: Interactive charting library.
-*   **HTML/CSS**: Custom component styling.
-
-## 📦 Installation
-
-1.  **Clone the repository** (or download code):
+1.  Clone the repository:
     ```bash
-    git clone <repository_url>
-    cd research-profile-dashboard
+    git clone https://github.com/Motheo-occxlnce/StreamlitApp-Student-Profile.git
+    cd StreamlitApp-Student-Profile
     ```
 
-2.  **Create a virtual environment** (optional but recommended):
+2.  Create a virtual environment (optional but recommended):
     ```bash
     python -m venv venv
     # Windows
     venv\Scripts\activate
-    # Mac/Linux
+    # macOS/Linux
     source venv/bin/activate
     ```
 
-3.  **Install dependencies**:
+3.  Install dependencies:
     ```bash
-    pip install streamlit plotly
+    pip install -r requirements.txt
     ```
 
-## ▶️ Usage
+## Usage
 
 Run the Streamlit application:
 
@@ -52,22 +41,13 @@ Run the Streamlit application:
 streamlit run app.py
 ```
 
-The dashboard will open automatically in your default browser at `http://localhost:8501`.
+The app will open in your default web browser at `http://localhost:8501`.
 
-## 📂 Project Structure
+## Customization
 
-```
-├── app.py           # Main application logic and layout
-├── style.css        # Custom CSS for styling cards and sidebar
-├── README.md        # Project documentation
-└── extract_cv.py    # (Utility) Script for extracting text from source CV
-```
+- **Profile Image**: Replace `High_DA25128-038.jpg` with your own image file.
+- **Content**: Update `app.py` to modify the text, projects, and experience details.
 
-## 👤 Author
+## License
 
-**Motheo Mahlatse Maoto Nkadimeng**
-*Meng Industrial Engineering Data Science*
-
----
-*Built with ❤️ using Streamlit*
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
